@@ -24,9 +24,7 @@ function onFormInput(e) {
 function onFormSubmit(e) {
   e.preventDefault();
 
-  console.log(e.target.email.value);
-  console.log(e.target.message.value);
-
+  console.log(formData);
   e.target.reset();
 
   localStorage.removeItem(STORAGE_KEY);
@@ -36,7 +34,7 @@ function populateTextarea() {
   const saveMessage = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
   if (saveMessage) {
-    refs.email.value = saveMessage['email'];
-    refs.textarea.value = saveMessage['message'];
+    refs.email.value = saveMessage['email'] || '';
+    refs.textarea.value = saveMessage['message'] || '';
   }
 }
