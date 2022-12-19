@@ -8,7 +8,7 @@ const refs = {
   textarea: document.querySelector('.feedback-form textarea'),
 };
 
-const formData = {};
+let formData = {};
 
 populateTextarea();
 
@@ -25,9 +25,10 @@ function onFormSubmit(e) {
   e.preventDefault();
 
   console.log(formData);
-  e.target.reset();
 
+  e.target.reset();
   localStorage.removeItem(STORAGE_KEY);
+  formData = {};
 }
 
 function populateTextarea() {
